@@ -1,12 +1,21 @@
 package main.java.com.addressbook;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class MenuCrudConsoleUtil 
 
 {
 	Scanner sc=new Scanner(System.in);
+
+	
+	
 	public Menu createMenu()
 	{
+		
+		Logger logger=Logger.getLogger(this.getClass().getName());
+		
+		logger.log(Level.SEVERE, "Enter The Menu");
 
 		System.out.println("Enter The Menu");
 
@@ -24,25 +33,16 @@ public class MenuCrudConsoleUtil
 
 	public void addMenuItem(Menu menuObj)
 	{
-		
-		String menu_name="true";
+		System.out.println("Enter The Menu Item or false to exit the loop");
+		String menu_name=sc.next();
 		while(!menu_name.equals("false"))
 		{
-			
-			
-			
-			System.out.println("Enter The Menu Item or false to exit the loop");
-			menu_name=sc.next();
-			
-			
-			
-			
-			
 			
 			MenuItem menu_item_obj=new MenuItem(menu_name);
 
 			menuObj.addMenuItem(menu_item_obj);
 			
+			menu_name=sc.next();
 		}
 
 	}

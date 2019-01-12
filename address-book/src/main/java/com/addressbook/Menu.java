@@ -54,10 +54,10 @@ public class Menu
 	void displayItem()
 	{
 		System.out.println("The Menu Is :"+menu_name);
-
+		 int iNo=0;
 		for (MenuItem i : menu_item) 
 		{ 
-			System.out.println(i.menuitem_name);
+			System.out.println(++iNo+"."+i.menuitem_name);
 		}
 	}
 	
