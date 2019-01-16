@@ -1,6 +1,5 @@
-package main.java.com.addressbook;
-import java.io.*;
-import java.util.*;
+package com.addressbook;
+import java.util.Scanner;
 public class AddressBookConsoleManager 
 {
 	static Scanner scanner_object=new Scanner(System.in);
@@ -52,10 +51,11 @@ public class AddressBookConsoleManager
 		
 		AddressCrudUtil address_crud_util_object=new AddressCrudUtil();
 		
-		
+	
 		
 		while(true)
 		{
+			
 			
 			crudObj.displayMenuAndItem(m);
 			
@@ -74,7 +74,7 @@ public class AddressBookConsoleManager
 			
 				case "Create":address_obj_switch=address_crud_util_object.create();
 				System.out.println("****************Address Created*************");
-				
+
 				break;
 				
 				case "Read":

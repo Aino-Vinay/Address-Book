@@ -1,4 +1,4 @@
-package main.java.com.addressbook;
+package com.addressbook;
 
 import java.util.*;
 
@@ -24,7 +24,7 @@ public class MenuItem
 */	
 	
 	public int menuitem_id;
-	String menuitem_name;
+	public String menuitem_name;
 	
 	
 	

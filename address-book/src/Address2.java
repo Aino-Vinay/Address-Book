@@ -1,5 +1,4 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+MenuCrudConsoleUtilTest.javaimport java.io.BufferedReader;
 
 
 public class Address2 {
@@ -13,7 +12,35 @@ public class Address2 {
 	
 	
 	
-	
+	import java.io.BufferedReader;
+
+
+	public class Address2 {
+
+		int id,zip;
+		String name,street,city,country;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+				
+				
+				
+			
+
+		
+	}
 	
 	
 	

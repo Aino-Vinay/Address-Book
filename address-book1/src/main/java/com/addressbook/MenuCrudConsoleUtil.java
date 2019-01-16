@@ -1,4 +1,4 @@
-package main.java.com.addressbook;
+package com.addressbook;
 
 import java.util.*;
 import java.util.logging.Level;

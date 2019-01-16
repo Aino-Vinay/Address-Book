@@ -1,4 +1,4 @@
-package main.java.com.addressbook;
+package com.addressbook;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,9 +7,9 @@ import java.util.logging.Logger;
 public class AddressCrudUtil {
 	
 	Address address_obj;
-	HashMap<String,Address> hashObj=new HashMap<String,Address>();
 	
-	
+	MapAddressStore mapAddressStoreObject=new MapAddressStore();
+	MySqlAddressStore mySqlAddressObject=new MySqlAddressStore();
 	
 	public Address create()
 	{
@@ -34,6 +34,7 @@ public class AddressCrudUtil {
 		
 		Address address_object=new Address();
 		
+		
 		address_object.setName(name);
 		
 		address_object.setStreet(street);
@@ -48,8 +49,10 @@ public class AddressCrudUtil {
 		address_object.setZip(zip);
 		
 		
-		hashObj.put(name,address_object);
+	//	hashObj.put(name,address_object);
 		
+		mapAddressStoreObject.add(name,address_object);
+		mySqlAddressObject.add(name,address_object);
 		return address_object;
 		
 		
@@ -57,34 +60,42 @@ public class AddressCrudUtil {
 	
 	public void Read(String name,Address address_object_read)
 	{
-		if(hashObj.containsKey(name))
-		{
-				
+			
 		System.out.println("Reading");
 		
-		address_object_read=hashObj.get(name);
+		Address addressObjectRead=mapAddressStoreObject.read(name);
 		
-		System.out.println("The Street Is :"+address_object_read.street);
+		System.out.println("The Street Is :"+addressObjectRead.street);
 		
-		System.out.println("The City Is :"+address_object_read.city);
+		System.out.println("The City Is :"+addressObjectRead.city);
 		
-		System.out.println("The Country Is :"+address_object_read.country);
+		System.out.println("The Country Is :"+addressObjectRead.country);
 		
-		System.out.println("The Zip Is :"+address_object_read.zip);
+		System.out.println("The Zip Is :"+addressObjectRead.zip);
 		
-		}
 		
-		else
-		{
-			System.out.println("The Record Does Not Exists");
-		}
+		
+		
+		//////////////////////////////////////////////////////////////
+		System.out.println("*********************Reading from database*************************");
+		
+		Address addressObjectReadFromDB=mySqlAddressObject.read(name);
+		
+		System.out.println("The Street Is :"+addressObjectReadFromDB.street);
+		
+		System.out.println("The City Is :"+addressObjectReadFromDB.city);
+		
+		System.out.println("The Country Is :"+addressObjectReadFromDB.country);
+		
+		System.out.println("The Zip Is :"+addressObjectReadFromDB.zip);
+		
+		
+		
 		
 	}
 	
 	public void update(String name)
 	{
-		if(hashObj.containsKey(name))
-		{
 		
 		
 		
@@ -126,34 +137,24 @@ public class AddressCrudUtil {
 		
 		
 		
+		mapAddressStoreObject.update(name, address_object_for_update);
+		mySqlAddressObject.update(name,address_object_for_update);
+	
+		System.out.println("************** Record Updated **********");
+
 		
-		
-		hashObj.replace(name, address_object_for_update);
-		
-		
-		System.out.println("**************  Details Updated **********");
-		}
-		
-		else
-		{
-			System.out.println("The Record Does Not Exists");
-		}
 
 	}
 	
 	public void delete(String name)
 	{
-		if(hashObj.containsKey(name))
-		{
-		hashObj.remove(name);
+		
+		mapAddressStoreObject.delete(name);
+		mySqlAddressObject.delete(name);
 		System.out.println("************** Record Deleted **********");
 		
-		}
-		else
-		{
-			System.out.println("The Record Does Not Exists");
-		}
 	}
+		
 	
 	
 	

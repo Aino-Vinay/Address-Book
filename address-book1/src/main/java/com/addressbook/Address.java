@@ -1,4 +1,4 @@
-package main.java.com.addressbook;
+package com.addressbook;
 
 
 

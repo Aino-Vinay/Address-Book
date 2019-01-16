@@ -1,5 +1,6 @@
-package main.java.com.addressbook;
-import java.util.*;
+package com.addressbook;
+
+import java.util.ArrayList;
 public class Menu 
 {
 /*	ArrayList<String> menuItem=new ArrayList<String>();
@@ -20,8 +21,8 @@ public class Menu
 	}
 	*/
 	public int menu_id;
-	String menu_name;
-	ArrayList<MenuItem> menu_item=new ArrayList<MenuItem>();
+	public String menu_name;
+	public ArrayList<MenuItem> menu_item=new ArrayList<MenuItem>();
 	
 	
 	
